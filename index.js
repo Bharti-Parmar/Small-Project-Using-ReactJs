@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
-import Counters from './counters';
+import Counters from './counters.js';
 
-class index extends Component {
+class Index extends Component {
 
     state = {
         counters:[
@@ -31,7 +31,17 @@ class index extends Component {
         });
     };
 
-    onHandleReset(){
+    onHandleDecrement = (counter) => {
+        const counters = [...this.state.counters];
+        const index = counters.indexOf(counter);
+        counters[index] = {...counter};
+        counters[index].value--;
+        this.setState({
+            counters
+        });
+    };
+
+    onHandleReset = () => {
         const counter = this.state.counters.map(c => {
             c.value = 0
             return c
@@ -57,10 +67,11 @@ class index extends Component {
                 <Counters counters={this.state.counters}
                           onDelete={this.onHandleDelete}
                           onIncrement={this.onHandleIncrement}
+                          onDecrement={this.onHandleDecrement}
                 />
             </React.Fragment>
         );
     }
 }
 
-export default index;
+export default Index;

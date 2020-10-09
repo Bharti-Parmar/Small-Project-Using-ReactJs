@@ -7,7 +7,7 @@ const Navbar = (props) => {
             <nav className="navbar navbar-light bg-light">
                 <h2 className="navbar-brand text-danger" href="#">Navbar</h2>
                 <span className="badge badge-warning p-2">{props.totalCounters}</span>
-                <button onClick={() => props.onReset()} className="btn btn-info">Reset</button>
+                <button onClick={props.onReset} className="btn btn-info">Reset</button>
             </nav>
     )
 }
