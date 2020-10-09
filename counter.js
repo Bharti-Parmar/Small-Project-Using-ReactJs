@@ -40,7 +40,7 @@ class Counter extends Component {
                 {/* {this.renderTags()} */}
                 <span className={classes} >{this.createCounter()}</span>
                 <button onClick={() => this.props.onIncrement(this.props.counter)} className="btn btn-primary">+</button>
-                <button onClick={() => this.props.onDecrement(this.props.counter)} className="btn btn-warning mx-2">-</button>
+                <button onClick={() => this.props.onDecrement(this.props.counter)} className="btn btn-warning mx-2" disabled={this.props.counter.value === 0 ? "disabled" : ""}>-</button>
                 <button onClick={() => this.props.onDelete(this.props.counter.id)} className="btn btn-danger">X</button>
             </div>
         );
